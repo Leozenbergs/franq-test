@@ -35,14 +35,14 @@
             color="primary"
             @click="() => handleSignIn()"
           >
-            SignIn
+            {{ $t('login.signIn') }}
           </v-btn>
           <v-btn
             text
             mr-2
             @click="() => handleSignUp()"
           >
-            SignUp
+            {{ $t('login.signUp') }}
           </v-btn>
 
         </v-card-actions>

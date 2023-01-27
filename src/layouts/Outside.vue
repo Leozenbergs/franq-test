@@ -18,11 +18,7 @@
       </v-btn>
     </v-app-bar>
     <v-main class="bg-color">
-      <v-container>
-        <v-row class="text-center full-bg" justify="center" align="center">
-          <SessionTabs/>
-        </v-row>
-      </v-container>
+      <Login />
 
       <v-footer padless absolute>
         <v-col
@@ -37,12 +33,12 @@
 </template>
 
 <script>
-import SessionTabs from '@/components/tabs/sessionTabs';
+import Login from '@/views/Login';
 
 export default {
 
   components: {
-    SessionTabs,
+    Login,
   },
 
   data: () => ({
@@ -54,8 +50,5 @@ export default {
 <style scoped>
 .bg-color {
   background: #efefef
-}
-.full-bg {
-  height: 80vh !important;
 }
 </style>

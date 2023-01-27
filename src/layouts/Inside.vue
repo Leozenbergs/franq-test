@@ -8,17 +8,17 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <Home />
     </v-main>
   </v-app>
 </template>
 
 <script >
-import HelloWorld from '@/components/HelloWorld';
+import Home from '@/views/Home';
 
 export default {
   components: {
-    HelloWorld,
+    Home,
   },
 
   data() {

@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "franqtest": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

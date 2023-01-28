@@ -5,7 +5,7 @@ import Inside from '@/layouts/Inside'
 
 Vue.use(VueRouter)
 
-const activeUser = undefined
+const userSession = localStorage.getItem('userSession')
 
 const routes = [
   {
@@ -24,8 +24,7 @@ const routes = [
     path: '/app',
     component: () => import('@/layouts/Inside.vue'),
     async beforeEnter(to, from, next) {
-      console.log(activeUser);
-      if (!activeUser) {
+      if (!userSession || userSession === 'undefined') {
         return next({ name: 'Login' });
       } else {
         next()

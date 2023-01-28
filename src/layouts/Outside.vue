@@ -2,16 +2,12 @@
   <v-app>
     <v-app-bar
       app
-      color="white"
       elevation="3"
       dense
       fixed
     >
       <v-app-bar-title>Franq-test</v-app-bar-title>
       <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-earth</v-icon>
-      </v-btn>
 
       <v-btn icon>
         <v-icon>mdi-white-balance-sunny</v-icon>

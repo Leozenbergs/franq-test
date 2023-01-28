@@ -1,31 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Outside from '@/layouts/Outside'
+import Inside from '@/layouts/Inside'
 
 Vue.use(VueRouter)
+
+const userSession = localStorage.getItem('userSession')
 
 const routes = [
   {
     path: '/',
-    redirect: 'login'
+    component: Outside,
+    redirect: 'login',
+    children: [
+      {
+        path: '/login',
+        name: 'Login',
+        component: Outside
+      }
+    ]
   },
   {
-    path: '/login',
-    name: 'login',
-    component: Outside
-  },
-  {
-    path: '/home',
-    name: 'home',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    path: '/app',
+    component: () => import('@/layouts/Inside.vue'),
+    async beforeEnter(to, from, next) {
+      if (!userSession || userSession === 'undefined') {
+        return next({ name: 'Login' });
+      } else {
+        next()
+      }
+    },
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: Inside
+      },
+    ],
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

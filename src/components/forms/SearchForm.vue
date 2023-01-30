@@ -1,65 +1,47 @@
 <template>
-  <div>
-    <v-row align-content="center" justify="center">
-      <v-text-field label="Search" v-model="search" />
-  
-  
+  <div class="mb-6">
+    <h2 class="mb-6">Quotations</h2>
+
+    <v-row align-content="center" justify="center" no-gutters>
+      <v-text-field label="Search" filled v-model="search" prepend-inner-icon="mdi-magnify" />
     </v-row>
-    <div id="chart"></div>
+
+    <quotation-cards :values="currencies" title="Currencies" />
+    <quotation-cards :values="bitcoins" title="Bitcoins" />
   </div>
 </template>
 
 <script>
 import financeService from '@/services/api/financeService';
-import ApexCharts from 'apexcharts'
-import { flatten } from 'loadash'
+import QuotationCards from '@/components/cards/QuotationCards';
 
 export default {
+  components: {
+    QuotationCards
+  },
   mixins: [financeService],
   data() {
     return {
       search: undefined,
-      results: undefined,
+      currencies: [],
+      bitcoins: [],
     }
   },
   mounted() {
     this.test()
-    this.renderChart()
-  },
-  computed: {
-    chartOptions() {
-      return {
-        chart: {
-          type: 'line'
-        },
-        series: [...this.results],
-        xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-        }
-      }
-    }
   },
   methods: {
     async test () {
       const { data } = await this.all()
-      this.results = data.results.stocks
-      this.headers = flatten(Object.keys(data.results.stocks))
+
+      Object.values(data.results.currencies).forEach(item => {
+        if(item != 'BRL') return this.currencies.push(item)
+      })
+
+      Object.values(data.results.bitcoin).forEach(item => {
+        return this.bitcoins.push(item)
+      })
     },
-
-    renderChart() {
-      let chart = new ApexCharts(document.querySelector("#chart"), this.chartOptions);
-
-      chart.render();
-    }
   }
 }
-
-
-
-
-
 </script>
-
-<style>
-
-</style>

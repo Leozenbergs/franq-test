@@ -16,18 +16,22 @@
 
     <v-main>
       <Home />
+
+      <main-footer />
     </v-main>
-    <MainDrawer v-model="drawer"/>
+    <main-drawer v-model="drawer"/>
   </v-app>
 </template>
 
 <script >
 import Home from '@/views/Home';
 import MainDrawer from '@/components/drawers/MainDrawer';
+import MainFooter from '@/components/footer/MainFooter';
 
 export default {
   components: {
     Home,
+    MainFooter,
     MainDrawer
   },
 

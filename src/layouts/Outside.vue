@@ -16,25 +16,20 @@
     <v-main class="bg-color">
       <Login />
 
-      <v-footer padless absolute>
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          {{ new Date().getFullYear() }} — <strong>Leonardo Rodrigues</strong>
-        </v-col>
-      </v-footer>
+      <main-footers />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Login from '@/views/Login';
+import MainFooter from '@/components/footer/MainFooter';
 
 export default {
 
   components: {
     Login,
+    MainFooter
   },
 
   data: () => ({

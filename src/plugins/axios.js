@@ -8,7 +8,7 @@ import axios from "axios";
 
 const apiKey = '276e6d6c'
 let config = {
-  baseURL: 'https://api.hgbrasil.com/finance?format=json-cors',
+  baseURL: 'https://api.hgbrasil.com/finance?format=json-cors&key=276e6d6c',
 };
 
 const _axios = axios.create(config);

@@ -1,7 +1,6 @@
 <template>
-  <v-container>
-    Home, welcome {{ user?.username }}
-    <SearchForm />
+  <v-container class="pt-2">
+    <search-form />
   </v-container>
 </template>
 

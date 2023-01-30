@@ -29,7 +29,9 @@
       </v-list-item-group>
     </v-list>
     
-    <amplify-sign-out :style="{'--amplify-primary-color': '#b71c1c'}" />
+    <v-row class="text-center" justify="center" align="center">
+      <amplify-sign-out :style="{'--amplify-primary-color': '#b71c1c', 'position': 'absolute', 'bottom': '15px'}" />
+    </v-row>
   </v-navigation-drawer>
 </template>
 
@@ -46,16 +48,20 @@ export default {
   data() {
     return {
       drawer: this.value,
-      group: null
+      group: null,
+      authState: undefined,
     }
   },
   mounted() {
-      onAuthUIStateChange((authState, authData) => {
-      localStorage.removeItem('userSession')
-      if (authState === 'signedout') this.$router.push({ name: 'Login' })
+    this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
+      this.authState = authState
     });
   },
   watch: {
+    authState() {
+      localStorage.removeItem('userSession')
+      if (this.authState === 'signedout') this.$router.push({ name: 'Login' })
+    },
     value: {
       immediate: true,
       handler() {

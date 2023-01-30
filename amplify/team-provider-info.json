@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-franqtest-dev-135238-authRole",
-      "UnauthRoleArn": "arn:aws:iam::617177830040:role/amplify-franqtest-dev-135238-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::617177830040:role/amplify-franqtest-dev-135238-authRole",
+      "AuthRoleName": "amplify-franqtest-dev-04902-authRole",
+      "UnauthRoleArn": "arn:aws:iam::617177830040:role/amplify-franqtest-dev-04902-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::617177830040:role/amplify-franqtest-dev-04902-authRole",
       "Region": "sa-east-1",
-      "DeploymentBucketName": "amplify-franqtest-dev-135238-deployment",
-      "UnauthRoleName": "amplify-franqtest-dev-135238-unauthRole",
-      "StackName": "amplify-franqtest-dev-135238",
-      "StackId": "arn:aws:cloudformation:sa-east-1:617177830040:stack/amplify-franqtest-dev-135238/204ac990-9d9a-11ed-a8a0-06ca9e696f64",
-      "AmplifyAppId": "dxfxvhyv99vf6"
+      "DeploymentBucketName": "amplify-franqtest-dev-04902-deployment",
+      "UnauthRoleName": "amplify-franqtest-dev-04902-unauthRole",
+      "StackName": "amplify-franqtest-dev-04902",
+      "StackId": "arn:aws:cloudformation:sa-east-1:617177830040:stack/amplify-franqtest-dev-04902/56c91fd0-a051-11ed-85a7-02e12c014080",
+      "AmplifyAppId": "d2gxzqr9gag2dg"
     },
     "categories": {
       "auth": {
-        "franqtest": {}
+        "franqtest5cc3c446": {}
       }
     }
   }

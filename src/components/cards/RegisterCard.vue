@@ -48,12 +48,10 @@ export default {
 
   methods: {
     async handleSignIn () {
-      debugger
       await this.executeSignIn({ username: this.user, password: this.password })
     },
 
     async handleSignUp () {
-      debugger
       await this.executeSignUp({ username: this.user, password: this.password })
     }
   }

@@ -1,25 +1,17 @@
 <template>
-  <v-container>
-    <v-row class="text-center" justify="center" align="center">
-      <amplify-authenticator :style="{'--container-height': '80vh'}">
-      </amplify-authenticator>
-    </v-row>
-  </v-container>
+  <amplify-authenticator :style="{'--container-height': '80vh'}">
+  </amplify-authenticator>
 </template>
 
 <script >
+  import Inside from '@/layouts/Inside'
   import { onAuthUIStateChange } from '@aws-amplify/ui-components';
+  import { mapState, mapMutations } from 'vuex'
   import '@/plugins/LoginLabels'
 
 export default {
-  mounted() {
-    this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
-      this.authState = authState;
-      this.user = authData;
-      localStorage.setItem('userSession', JSON.stringify(authData))
-      if (authState === 'signedin') this.$router.push({name: 'Home'})
-    });
-  },
+  components: {Inside},
+
   data() {
     return {
       user: undefined,
@@ -27,9 +19,34 @@ export default {
       unsubscribeAuth: undefined,
     };
   },
+
+  mounted() {
+    this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
+      this.authState = authState;
+      this.user = authData;
+      !!this.user ? this.setUserSession(authData) : undefined
+    });
+  },
+
+  watch: {
+    userSession() {
+      if (!this.user) return
+      localStorage.setItem('userSession', JSON.stringify(this.user))
+      this.$router.push({name: 'Home'})
+    }
+  },
+
+  computed: {
+    ...mapState(['userSession'])
+  },
+
   beforeDestroy() {
     this.unsubscribeAuth();
   },
+
+  methods: {
+    ...mapMutations(['setUserSession'])
+  }
 };
 </script>
 

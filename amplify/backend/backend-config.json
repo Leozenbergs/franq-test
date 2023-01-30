@@ -1,6 +1,6 @@
 {
   "auth": {
-    "franqtest": {
+    "franqtest5cc3c446": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -9,31 +9,20 @@
           "SMS"
         ],
         "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [
-            "REQUIRES_LOWERCASE",
-            "REQUIRES_NUMBERS",
-            "REQUIRES_SYMBOLS",
-            "REQUIRES_UPPERCASE"
-          ],
+          "passwordPolicyCharacters": [],
           "passwordPolicyMinLength": 8
         },
-        "signupAttributes": [],
-        "socialProviders": [],
-        "usernameAttributes": [
+        "signupAttributes": [
           "EMAIL"
         ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
-    }
-  },
-  "hosting": {
-    "S3AndCloudFront": {
-      "providerPlugin": "awscloudformation",
-      "service": "S3AndCloudFront"
     }
   }
 }

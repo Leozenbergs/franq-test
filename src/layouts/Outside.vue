@@ -9,32 +9,24 @@
       <v-app-bar-title>Franq-test</v-app-bar-title>
       <v-spacer />
 
-      <v-btn icon>
-        <v-icon>mdi-white-balance-sunny</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-main class="bg-color">
       <Login />
 
-      <v-footer padless absolute>
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          {{ new Date().getFullYear() }} — <strong>Leonardo Rodrigues</strong>
-        </v-col>
-      </v-footer>
+      <main-footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Login from '@/views/Login';
+import MainFooter from '@/components/footer/MainFooter';
 
 export default {
 
   components: {
     Login,
+    MainFooter
   },
 
   data: () => ({

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/index'
 import Outside from '@/layouts/Outside'
 import Inside from '@/layouts/Inside'
 
@@ -24,7 +25,7 @@ const routes = [
     path: '/app',
     component: () => import('@/layouts/Inside.vue'),
     async beforeEnter(to, from, next) {
-      if (!userSession || userSession === 'undefined') {
+      if (!store.state.userSession && !userSession) {        
         return next({ name: 'Login' });
       } else {
         next()

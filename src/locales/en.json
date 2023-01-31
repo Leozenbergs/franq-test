@@ -2,6 +2,24 @@
   "login": {
     "signIn": "Sign in",
     "signUp": "Register"
-
+  },
+  "labels": {
+    "search": "Search",
+    "quotations": "Quotations",
+    "currencies": "Currencies",
+    "bitcoins": "Bitcoins",
+    "uninformed": "Uninformed",
+    "buy": "Buy",
+    "sell": "Sell",
+    "variation": "Variation",
+    "signOut": "Sign out"
+  },
+  "dialogs": {
+    "confirmationDialog": {
+      "header": "Confirm sign out",
+      "body": "Are you sure you want to sign out?",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
   }
 }

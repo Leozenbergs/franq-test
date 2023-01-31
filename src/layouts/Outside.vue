@@ -13,7 +13,7 @@
     <v-main class="bg-color">
       <Login />
 
-      <main-footers />
+      <main-footer />
     </v-main>
   </v-app>
 </template>

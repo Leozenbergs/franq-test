@@ -11,6 +11,15 @@
     "uninformed": "Uninformed",
     "buy": "Buy",
     "sell": "Sell",
-    "variation": "Variation"
+    "variation": "Variation",
+    "signOut": "Sign out"
+  },
+  "dialogs": {
+    "confirmationDialog": {
+      "header": "Confirm sign out",
+      "body": "Are you sure you want to sign out?",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
   }
 }

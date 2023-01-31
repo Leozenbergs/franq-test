@@ -14,26 +14,28 @@
             icon
             color="#D32F2F"
             v-on="on"
-            @click="handleSignOut()"
+            @click="showConfirmationDialog()"
           >
             <v-icon>mdi-power</v-icon>
           </v-btn>  
         </template>
-        Sign out
+        {{ $t('labels.signOut') }}
       </v-tooltip>
     </v-app-bar>
 
     <v-main>
       <Home />
-
       <main-footer />
     </v-main>
+
+    <confirmation-dialog v-model="confirmationDialog" @confirm="handleSignOut()" />
   </v-app>
 </template>
 
 <script >
 import Home from '@/views/Home';
 import MainFooter from '@/components/footer/MainFooter';
+import ConfirmationDialog from '@/components/dialogs/ConfirmationDialog';
 
 import AuthenticationService from '@/services/auth/AuthenticationService';
 
@@ -41,14 +43,19 @@ export default {
   components: {
     Home,
     MainFooter,
+    ConfirmationDialog
   },
   mixins: [AuthenticationService],
   data() {
     return {
+      confirmationDialog: false,
       authState: undefined,
     }
   },
   methods: {
+    showConfirmationDialog() {
+      this.confirmationDialog = true
+    },
     async handleSignOut() {
       await this.executeSignOut()
       localStorage.removeItem('userSession')

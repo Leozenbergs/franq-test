@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="mb-6">{{ title }}</h3>
+    <h3 class="my-6 text-left mx-2">{{ title }}:</h3>
 
     <v-row no-gutters v-if="!!values" align-content="center" justify="center">
     
@@ -19,7 +19,10 @@
               <b>{{ $t('labels.sell') }}:</b> {{ buildLabel(item.sell, item.format) }}
             </div>
             <div v-if="item.variation">
-              <b>{{ $t('labels.variation') }}:</b> <span :class="item.variation > 0 ? 'green--text': 'red--text'">{{ item.variation }}</span>
+              <b>{{ $t('labels.variation') }}:</b> 
+              <span :class="item.variation > 0 ? 'green white--text pa-1 rounded': 'red white--text pa-1 rounded'">
+                {{ item.variation }}%
+              </span>
             </div>
           </v-card-text>
     
@@ -53,5 +56,8 @@ export default {
 <style>
 .pointer {
   cursor: pointer;
+}
+.rounded {
+  border-radius: 10px;
 }
 </style>

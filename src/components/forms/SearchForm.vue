@@ -8,21 +8,31 @@
         :label="$t('labels.search')"
         filled
         prepend-inner-icon="mdi-magnify"
+        hide-details
+        class="mx-2"
       />
     </v-row>
 
-    <quotation-cards :values="currencies" :title="$t('labels.currencies')" />
-    <quotation-cards :values="bitcoins" :title="$t('labels.bitcoins')" />
+    <div v-if="!loading" >
+      <quotation-cards :values="currencies" :title="$t('labels.currencies')" />
+      <quotation-cards :values="bitcoins" :title="$t('labels.bitcoins')" />
+    </div>
+    <div v-else>
+      <loader />
+    </div>
   </div>
 </template>
 
 <script>
-import financeService from '@/services/api/financeService';
 import QuotationCards from '@/components/cards/QuotationCards';
+import Loader from '@/components/loaders/Loader'
+
+import financeService from '@/services/api/financeService';
 
 export default {
   components: {
-    QuotationCards
+    QuotationCards,
+    Loader
   },
   mixins: [financeService],
   data() {
@@ -30,6 +40,7 @@ export default {
       search: undefined,
       currencies: [],
       bitcoins: [],
+      loading: true,
     }
   },
   mounted() {
@@ -46,6 +57,8 @@ export default {
       Object.values(data.results.bitcoin).forEach(item => {
         return this.bitcoins.push(item)
       })
+
+      this.loading = false
     },
   }
 }

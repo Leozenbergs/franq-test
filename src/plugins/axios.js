@@ -6,9 +6,9 @@ import axios from "axios";
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 
-const apiKey = '276e6d6c'
+const apiKey = '50753533'
 let config = {
-  baseURL: 'https://api.hgbrasil.com/finance?format=json-cors&key=276e6d6c',
+  baseURL: `https://api.hgbrasil.com/finance?format=json-cors&key=${apiKey}`,
 };
 
 const _axios = axios.create(config);

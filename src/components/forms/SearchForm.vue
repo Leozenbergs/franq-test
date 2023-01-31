@@ -2,7 +2,7 @@
   <div class="mb-6">
     <h2 class="mb-6">{{ $t('labels.quotations') }}</h2>
 
-    <v-row align-content="center" justify="center" no-gutters>
+    <!-- <v-row align-content="center" justify="center" no-gutters>
       <v-text-field
         v-model="search"
         :label="$t('labels.search')"
@@ -11,7 +11,7 @@
         hide-details
         class="mx-2"
       />
-    </v-row>
+    </v-row> -->
 
     <div v-if="!loading" >
       <quotation-cards :values="currencies" :title="$t('labels.currencies')" />
@@ -37,7 +37,7 @@ export default {
   mixins: [financeService],
   data() {
     return {
-      search: undefined,
+      // search: undefined,
       currencies: [],
       bitcoins: [],
       loading: true,

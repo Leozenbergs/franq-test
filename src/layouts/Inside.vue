@@ -5,40 +5,62 @@
       elevation="3"
       dense
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-app-bar-title>Franq-test</v-app-bar-title>
       <v-spacer />
 
-      <v-btn icon>
-        <v-icon>mdi-white-balance-sunny</v-icon>
-      </v-btn>  
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            color="#D32F2F"
+            v-on="on"
+            @click="showConfirmationDialog()"
+          >
+            <v-icon>mdi-power</v-icon>
+          </v-btn>  
+        </template>
+        {{ $t('labels.signOut') }}
+      </v-tooltip>
     </v-app-bar>
 
     <v-main>
       <Home />
-
       <main-footer />
     </v-main>
-    <main-drawer v-model="drawer"/>
+
+    <confirmation-dialog v-model="confirmationDialog" @confirm="handleSignOut()" />
   </v-app>
 </template>
 
 <script >
 import Home from '@/views/Home';
-import MainDrawer from '@/components/drawers/MainDrawer';
 import MainFooter from '@/components/footer/MainFooter';
+import ConfirmationDialog from '@/components/dialogs/ConfirmationDialog';
+
+import AuthenticationService from '@/services/auth/AuthenticationService';
 
 export default {
   components: {
     Home,
     MainFooter,
-    MainDrawer
+    ConfirmationDialog
   },
-
+  mixins: [AuthenticationService],
   data() {
     return {
-      drawer: false
+      confirmationDialog: false,
+      authState: undefined,
     }
   },
+  methods: {
+    showConfirmationDialog() {
+      this.confirmationDialog = true
+    },
+    async handleSignOut() {
+      await this.executeSignOut()
+      localStorage.removeItem('userSession')
+      this.$router.push({ name: 'Login' })
+    }
+  }
 };
 </script>

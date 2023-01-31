@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pt-2">
+  <v-container class="pt-2 pb-8">
     <search-form />
   </v-container>
 </template>

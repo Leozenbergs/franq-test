@@ -2,5 +2,24 @@
   "login": {
     "signIn": "Logar",
     "signUp": "Registrar"
+  },
+  "labels": {
+    "search": "Procurar",
+    "quotations": "Cotações",
+    "currencies": "Moedas",
+    "bitcoins": "Bitcoins",
+    "uninformed": "Não informado",
+    "buy": "Compra",
+    "sell": "Venda",
+    "variation": "Variação",
+    "signOut": "Deslogar"
+  },
+  "dialogs": {
+    "confirmationDialog": {
+      "header": "Confirmação de ação",
+      "body": "Deseja continuar com a ação",
+      "confirm": "Confirmar",
+      "cancel": "Cancela"
+    }
   }
 }

@@ -9,14 +9,11 @@
       <v-app-bar-title>Franq-test</v-app-bar-title>
       <v-spacer />
 
-      <v-btn icon>
-        <v-icon>mdi-white-balance-sunny</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-main class="bg-color">
       <Login />
 
-      <main-footers />
+      <main-footer />
     </v-main>
   </v-app>
 </template>

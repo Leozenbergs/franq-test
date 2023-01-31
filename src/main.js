@@ -15,7 +15,6 @@ import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import store from './store'
 
-
 Amplify.configure(awsconfig);
 
 applyPolyfills().then(() => {

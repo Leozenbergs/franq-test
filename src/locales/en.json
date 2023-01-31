@@ -2,6 +2,15 @@
   "login": {
     "signIn": "Sign in",
     "signUp": "Register"
-
+  },
+  "labels": {
+    "search": "Search",
+    "quotations": "Quotations",
+    "currencies": "Currencies",
+    "bitcoins": "Bitcoins",
+    "uninformed": "Uninformed",
+    "buy": "Buy",
+    "sell": "Sell",
+    "variation": "Variation"
   }
 }

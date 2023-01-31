@@ -5,13 +5,22 @@
       elevation="3"
       dense
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-app-bar-title>Franq-test</v-app-bar-title>
       <v-spacer />
 
-      <v-btn icon>
-        <v-icon>mdi-white-balance-sunny</v-icon>
-      </v-btn>  
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            color="#D32F2F"
+            v-on="on"
+            @click="handleSignOut()"
+          >
+            <v-icon>mdi-power</v-icon>
+          </v-btn>  
+        </template>
+        Sign out
+      </v-tooltip>
     </v-app-bar>
 
     <v-main>
@@ -19,26 +28,32 @@
 
       <main-footer />
     </v-main>
-    <main-drawer v-model="drawer"/>
   </v-app>
 </template>
 
 <script >
 import Home from '@/views/Home';
-import MainDrawer from '@/components/drawers/MainDrawer';
 import MainFooter from '@/components/footer/MainFooter';
+
+import AuthenticationService from '@/services/auth/AuthenticationService';
 
 export default {
   components: {
     Home,
     MainFooter,
-    MainDrawer
   },
-
+  mixins: [AuthenticationService],
   data() {
     return {
-      drawer: false
+      authState: undefined,
     }
   },
+  methods: {
+    async handleSignOut() {
+      await this.executeSignOut()
+      localStorage.removeItem('userSession')
+      this.$router.push({ name: 'Login' })
+    }
+  }
 };
 </script>

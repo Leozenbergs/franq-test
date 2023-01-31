@@ -1,13 +1,18 @@
 <template>
   <div class="mb-6">
-    <h2 class="mb-6">Quotations</h2>
+    <h2 class="mb-6">{{ $t('labels.quotations') }}</h2>
 
     <v-row align-content="center" justify="center" no-gutters>
-      <v-text-field label="Search" filled v-model="search" prepend-inner-icon="mdi-magnify" />
+      <v-text-field
+        v-model="search"
+        :label="$t('labels.search')"
+        filled
+        prepend-inner-icon="mdi-magnify"
+      />
     </v-row>
 
-    <quotation-cards :values="currencies" title="Currencies" />
-    <quotation-cards :values="bitcoins" title="Bitcoins" />
+    <quotation-cards :values="currencies" :title="$t('labels.currencies')" />
+    <quotation-cards :values="bitcoins" :title="$t('labels.bitcoins')" />
   </div>
 </template>
 

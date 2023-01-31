@@ -48,17 +48,22 @@ export default {
   },
   methods: {
     async test () {
-      const { data } = await this.all()
+      try {
+        const { data } = await this.all()
+  
+        Object.values(data.results.currencies).forEach(item => {
+          if(item != 'BRL') return this.currencies.push(item)
+        })
+  
+        Object.values(data.results.bitcoin).forEach(item => {
+          return this.bitcoins.push(item)
+        })
+        this.loading = false
+      } catch (e) {
+        console.log(e);
+        this.loading = false
+      }
 
-      Object.values(data.results.currencies).forEach(item => {
-        if(item != 'BRL') return this.currencies.push(item)
-      })
-
-      Object.values(data.results.bitcoin).forEach(item => {
-        return this.bitcoins.push(item)
-      })
-
-      this.loading = false
     },
   }
 }

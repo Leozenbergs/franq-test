@@ -6,7 +6,7 @@ import axios from "axios";
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 
-const apiKey = '50753533'
+const apiKey = 'dc980f57'
 let config = {
   baseURL: `https://api.hgbrasil.com/finance?format=json-cors&key=${apiKey}`,
 };

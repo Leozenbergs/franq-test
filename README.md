@@ -46,4 +46,4 @@ Com a ferramenta vuetify também foi possível utilizar os icones da material de
 Para hospedagem utilizei o serviço AWS CloudFront também disponibilizado pelo amplify
 
 O desafio está disponível para acesso aqui:
-[Visualizar Teste](http://franqtest-20230131135018-hostingbucket-dev.s3-website-sa-east-1.amazonaws.com/login)
+[Visualizar Desafio](http://franqtest-20230131135018-hostingbucket-dev.s3-website-sa-east-1.amazonaws.com/login)

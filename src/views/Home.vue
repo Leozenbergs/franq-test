@@ -1,13 +1,13 @@
 <template>
   <v-container class="pt-2 pb-8">
-    <search-form />
+    <quotation-tabs />
   </v-container>
 </template>
 
 <script >
-  import SearchForm from '@/components/forms/SearchForm';
+  import QuotationTabs from '@/components/tabs/QuotationTabs';
   export default {
-    components: {SearchForm},
+    components: {QuotationTabs},
     data() {
       return {
         user: undefined,

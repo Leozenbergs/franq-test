@@ -12,7 +12,8 @@
     "buy": "Buy",
     "sell": "Sell",
     "variation": "Variation",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "taxes": "Taxes"
   },
   "dialogs": {
     "confirmationDialog": {

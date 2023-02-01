@@ -12,7 +12,8 @@
     "buy": "Compra",
     "sell": "Venda",
     "variation": "Variação",
-    "signOut": "Deslogar"
+    "signOut": "Deslogar",
+    "taxes": "Bolsa"
   },
   "dialogs": {
     "confirmationDialog": {

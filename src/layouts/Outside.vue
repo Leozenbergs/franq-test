@@ -2,11 +2,11 @@
   <v-app>
     <v-app-bar
       app
-      elevation="3"
+      elevation="1"
       dense
       fixed
     >
-      <v-app-bar-title>Franq-test</v-app-bar-title>
+      <v-app-bar-title>Franq</v-app-bar-title>
       <v-spacer />
 
     </v-app-bar>

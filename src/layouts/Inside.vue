@@ -2,25 +2,13 @@
   <v-app>
     <v-app-bar
       app
-      elevation="3"
+      elevation="1"
       dense
     >
-      <v-app-bar-title>Franq-test</v-app-bar-title>
+      <v-app-bar-title>Franq</v-app-bar-title>
       <v-spacer />
 
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn
-            icon
-            color="#D32F2F"
-            v-on="on"
-            @click="showConfirmationDialog()"
-          >
-            <v-icon>mdi-power</v-icon>
-          </v-btn>  
-        </template>
-        {{ $t('labels.signOut') }}
-      </v-tooltip>
+      <logout-button @click="showConfirmationDialog()" />
     </v-app-bar>
 
     <v-main>
@@ -35,6 +23,7 @@
 <script >
 import Home from '@/views/Home';
 import MainFooter from '@/components/footer/MainFooter';
+import LogoutButton from '@/components/buttons/LogoutButton';
 import ConfirmationDialog from '@/components/dialogs/ConfirmationDialog';
 
 import AuthenticationService from '@/services/auth/AuthenticationService';
@@ -43,6 +32,7 @@ export default {
   components: {
     Home,
     MainFooter,
+    LogoutButton,
     ConfirmationDialog
   },
   mixins: [AuthenticationService],
